@@ -1,7 +1,11 @@
 <!-- app/views/admin/restaurants/index.html.erb -->
 <h1>My list of restaurants</h1>
-<% @restaurants.each do |restaurant| %>
+
+
+  <%= link_to "Create a new restaurant", new_restaurant_path, class: "btn btn-success"%>
+</br></br><% @restaurants.each do |restaurant| %>
   <h2><%= restaurant.name %></h2>
   <p><%= restaurant.address %></p>
   <p><%= restaurant.phone_number %></p>
+  <%= link_to "See details", restaurant, class: "btn btn-primary"%>
 <% end %>

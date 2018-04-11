@@ -1,5 +1,10 @@
 # app/controllers/reviews_controller.rb
 class ReviewsController < ApplicationController
+	def index
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @reviews = @restaurant.reviews
+	end
+
 	def new
     # we need @restaurant in our `simple_form_for`
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -25,5 +30,5 @@ class ReviewsController < ApplicationController
 
   def review_params
   	params.require(:review).permit(:content, :rating)
-  end
+end
 end
